@@ -1,9 +1,6 @@
 package com.zzkun.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -24,6 +21,47 @@ public class Evaluation implements Serializable {
 
     private LocalDateTime time;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "to_league_id")
+    private League toLeague;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "by_user_id")
+    private User byUser;
+
+    // ======
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getStar() {
+        return star;
+    }
+
+    public void setStar(Integer star) {
+        this.star = star;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
 
 
 }

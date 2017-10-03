@@ -11,7 +11,7 @@ public class LeagueManagerApplication implements CommandLineRunner {
 
 	@Autowired private MainView mainView;
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		SpringApplication.run(LeagueManagerApplication.class, args);
 	}
 

@@ -2,6 +2,8 @@ package com.zzkun.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 用户类
@@ -23,6 +25,14 @@ public class User implements Serializable, Comparable<User> {
     private String major;
 
     private String address;
+
+    @OneToMany(mappedBy = "byUser")
+    private List<Evaluation> evaluationList = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "userList")
+    private List<League> leagueList = new ArrayList<>();
+
+    // ====
 
     public Integer getId() {
         return id;
@@ -62,6 +72,22 @@ public class User implements Serializable, Comparable<User> {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Evaluation> getEvaluationList() {
+        return evaluationList;
+    }
+
+    public void setEvaluationList(List<Evaluation> evaluationList) {
+        this.evaluationList = evaluationList;
+    }
+
+    public List<League> getLeagueList() {
+        return leagueList;
+    }
+
+    public void setLeagueList(List<League> leagueList) {
+        this.leagueList = leagueList;
     }
 
     @Override
