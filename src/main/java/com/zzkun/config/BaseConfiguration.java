@@ -12,5 +12,4 @@ public class BaseConfiguration {
     public Scanner scanner() {
         return new Scanner(System.in);
     }
-
 }

@@ -63,5 +63,13 @@ public class Evaluation implements Serializable {
         this.time = time;
     }
 
-
+    @Override
+    public String toString() {
+        return "Evaluation{" +
+                "id=" + id +
+                ", star=" + star +
+                ", content='" + content + '\'' +
+                ", time=" + time +
+                '}';
+    }
 }
